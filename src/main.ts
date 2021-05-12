@@ -82,6 +82,11 @@ async function findComment(inputs: Inputs): Promise<Comment | undefined> {
 
 async function run(): Promise<void> {
   try {
+    core.warning(`This action's default branch has been renamed to "main"`)
+    core.warning(
+      `Referencing this action with "@master" is deprecated and will stop working after June 30th 2021`
+    )
+
     const inputs: Inputs = {
       token: core.getInput('token'),
       repository: core.getInput('repository'),
